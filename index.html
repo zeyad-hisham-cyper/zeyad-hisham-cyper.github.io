@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- REPLACE: update description and OG tags before publishing -->
+  <meta name="description" content="Zeyad Hisham — Electronics & Communications Engineer specializing in cybersecurity, embedded systems, and IoT." />
+  <meta property="og:title" content="Zeyad Hisham" />
+  <meta property="og:description" content="Electronics Engineer → Cybersecurity" />
+  <meta property="og:type" content="website" />
+
+  <title>Zeyad Hisham</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+
+  <!-- Custom cursor (desktop only — JS disables on touch) -->
+  <div id="cursor" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       Navbar
+       ============================================================ -->
+  <nav class="navbar" role="navigation" aria-label="Primary navigation">
+    <div class="navbar__inner">
+      <!-- REPLACE: swap initials or add a favicon/logo SVG -->
+      <a href="#hero" class="navbar__logo">zh<span>.</span></a>
+
+      <ul class="navbar__links" role="list">
+        <li><a href="#about"    data-section="about">About</a></li>
+        <li><a href="#projects" data-section="projects">Projects</a></li>
+        <li><a href="#skills"   data-section="skills">Skills</a></li>
+        <li><a href="#blog"     data-section="blog">Writing</a></li>
+        <li><a href="#contact"  data-section="contact">Contact</a></li>
+      </ul>
+
+      <button class="navbar__toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ============================================================
+         Hero
+         ============================================================ -->
+    <section id="hero">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="container">
+        <div class="hero__content">
+          <p class="hero__pre">
+            <!-- REPLACE: update pre-title line -->
+            Electronics &amp; Communications Engineer
+          </p>
+
+          <!-- REPLACE: full name -->
+          <h1 class="hero__name" id="hero-name">Zeyad<br /><em>Hisham</em></h1>
+
+          <!-- REPLACE: one-line identity statement -->
+          <p class="hero__subtitle">
+            Building secure systems from the silicon up — embedded engineer
+            turned cybersecurity specialist, bridging hardware and threat landscapes.
+          </p>
+
+          <p class="hero__terminal">
+            <span class="terminal__prompt">&gt;</span>systems_engineer --stack embedded,ai,security --status active<span class="terminal__cursor"></span>
+          </p>
+
+          <div class="hero__cta">
+            <a href="#projects" class="btn btn--primary">View Projects</a>
+            <a href="./assets/cv/resume.pdf" class="btn btn--ghost" download>Download CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         About
+         ============================================================ -->
+    <section id="about">
+      <div class="container">
+        <p class="section-label">About</p>
+        <h2 class="section-title">Who I Am</h2>
+
+        <div class="about__grid">
+          <div class="about__text">
+            <!-- REPLACE: first paragraph -->
+            <p>
+              I'm an electronics and communications engineer with a strong foundation in
+              <strong>embedded systems, microcontroller programming, and IoT architecture</strong>.
+              I spent several years designing firmware for resource-constrained devices,
+              working across RTOS environments, communication protocols (UART, SPI, I²C, MQTT),
+              and low-level hardware bring-up — so I understand the full stack from schematic
+              to deployed system.
+            </p>
+            <!-- REPLACE: second paragraph -->
+            <p>
+              Today my focus has shifted to <strong>cybersecurity</strong> — specifically the
+              intersection of hardware security, network defence, and applied machine learning
+              for threat detection. I approach security problems the way an engineer would:
+              by understanding the system deeply before trying to break or harden it.
+              I'm currently pursuing certifications and building tools that bridge both worlds.
+            </p>
+          </div>
+
+          <!-- Styled div placeholder — replace with <img> when you have a photo -->
+          <!-- REPLACE: swap this div for <img src="./assets/images/photo.jpg" alt="Zeyad Hisham" class="about__photo" /> -->
+          <div class="about__photo" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Projects
+         ============================================================ -->
+    <section id="projects">
+      <div class="container">
+        <p class="section-label">Projects</p>
+        <h2 class="section-title">Selected Work</h2>
+
+        <!-- Filter bar -->
+        <div class="filter-bar" role="group" aria-label="Filter projects by category">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="security">Security</button>
+          <button class="filter-btn" data-filter="embedded">Embedded</button>
+          <button class="filter-btn" data-filter="ai-ml">AI / ML</button>
+          <button class="filter-btn" data-filter="research">Research</button>
+        </div>
+
+        <div class="projects__grid">
+
+          <!-- Card 1 — Security -->
+          <!-- REPLACE: update title, description, links, and stack -->
+          <article class="project-card" data-tags="security">
+            <div class="project-card__media" aria-hidden="true"></div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="tag tag--security">Security</span>
+              </div>
+              <h3 class="project-card__title">Network Packet Analyser &amp; IDS Prototype</h3>
+              <div class="project-card__desc-wrap">
+                <p class="project-card__desc">
+                  A lightweight intrusion detection prototype that captures live traffic,
+                  parses headers, and flags anomalous patterns using rule-based and
+                  statistical methods.
+                </p>
+                <button class="project-card__readmore" aria-expanded="false">Read more</button>
+              </div>
+              <p class="project-card__stack">Python · Scapy · Wireshark · Linux</p>
+              <div class="project-card__actions">
+                <a href="#" class="project-card__action" aria-label="GitHub repository" data-hidden="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                  GitHub
+                </a>
+                <a href="#" class="project-card__action project-card__action--ext" aria-label="Live demo" data-hidden="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 — Embedded -->
+          <!-- REPLACE: update title, description, links, and stack -->
+          <article class="project-card" data-tags="embedded">
+            <div class="project-card__media" aria-hidden="true"></div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="tag tag--embedded">Embedded</span>
+              </div>
+              <h3 class="project-card__title">RTOS-Based Smart Sensor Node</h3>
+              <div class="project-card__desc-wrap">
+                <p class="project-card__desc">
+                  Multi-tasking sensor node on STM32 running FreeRTOS, collecting environmental
+                  data over I²C/SPI and publishing to an MQTT broker via ESP8266 co-processor.
+                </p>
+                <button class="project-card__readmore" aria-expanded="false">Read more</button>
+              </div>
+              <p class="project-card__stack">STM32 · FreeRTOS · C · MQTT · ESP8266</p>
+              <div class="project-card__actions">
+                <a href="#" class="project-card__action" aria-label="GitHub repository" data-hidden="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                  GitHub
+                </a>
+                <a href="#" class="project-card__action project-card__action--ext" aria-label="Live demo" data-hidden="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 — AI/ML + Security -->
+          <!-- REPLACE: update title, description, links, and stack -->
+          <article class="project-card" data-tags="ai-ml,security">
+            <div class="project-card__media" aria-hidden="true"></div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="tag tag--ai-ml">AI / ML</span>
+                <span class="tag tag--security">Security</span>
+              </div>
+              <h3 class="project-card__title">ML-Driven Malware Traffic Classifier</h3>
+              <div class="project-card__desc-wrap">
+                <p class="project-card__desc">
+                  Random-forest model trained on the CICIDS dataset to classify benign vs.
+                  attack traffic using flow-level features, achieving &gt;97% accuracy on the
+                  holdout set.
+                </p>
+                <button class="project-card__readmore" aria-expanded="false">Read more</button>
+              </div>
+              <p class="project-card__stack">Python · scikit-learn · pandas · CICIDS2017</p>
+              <div class="project-card__actions">
+                <a href="#" class="project-card__action" aria-label="GitHub repository" data-hidden="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                  GitHub
+                </a>
+                <a href="#" class="project-card__action project-card__action--ext" aria-label="Live demo" data-hidden="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 — Embedded + Research -->
+          <!-- REPLACE: update title, description, links, and stack -->
+          <article class="project-card" data-tags="embedded,research">
+            <div class="project-card__media" aria-hidden="true"></div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="tag tag--embedded">Embedded</span>
+                <span class="tag tag--research">Research</span>
+              </div>
+              <h3 class="project-card__title">LoRaWAN Asset Tracker for Industrial IoT</h3>
+              <div class="project-card__desc-wrap">
+                <p class="project-card__desc">
+                  Long-range, low-power asset tracking node built on STM32L0 with GPS and
+                  LoRaWAN connectivity. Sleep current under 8 µA; field-tested over 4 km LOS range.
+                </p>
+                <button class="project-card__readmore" aria-expanded="false">Read more</button>
+              </div>
+              <p class="project-card__stack">STM32L0 · LoRaWAN · C · GPS · The Things Network</p>
+              <div class="project-card__actions">
+                <a href="#" class="project-card__action" aria-label="GitHub repository" data-hidden="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                  GitHub
+                </a>
+                <a href="#" class="project-card__action project-card__action--ext" aria-label="Live demo" data-hidden="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 — Research + Security -->
+          <!-- REPLACE: update title, description, links, and stack -->
+          <article class="project-card" data-tags="research,security">
+            <div class="project-card__media" aria-hidden="true"></div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="tag tag--research">Research</span>
+                <span class="tag tag--security">Security</span>
+              </div>
+              <h3 class="project-card__title">IoT Firmware Attack Surface Analysis</h3>
+              <div class="project-card__desc-wrap">
+                <p class="project-card__desc">
+                  Systematic static and dynamic analysis of off-the-shelf IoT firmware images —
+                  extracting file systems with Binwalk, identifying hardcoded credentials,
+                  and documenting CVE-class vulnerabilities.
+                </p>
+                <button class="project-card__readmore" aria-expanded="false">Read more</button>
+              </div>
+              <p class="project-card__stack">Binwalk · Ghidra · QEMU · Python · Linux</p>
+              <div class="project-card__actions">
+                <a href="#" class="project-card__action" aria-label="GitHub repository" data-hidden="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                  GitHub
+                </a>
+                <a href="#" class="project-card__action project-card__action--ext" aria-label="Live demo" data-hidden="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6 — AI/ML + Embedded -->
+          <!-- REPLACE: update title, description, links, and stack -->
+          <article class="project-card" data-tags="ai-ml,embedded">
+            <div class="project-card__media" aria-hidden="true"></div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span class="tag tag--ai-ml">AI / ML</span>
+                <span class="tag tag--embedded">Embedded</span>
+              </div>
+              <h3 class="project-card__title">TinyML Anomaly Detector on Cortex-M4</h3>
+              <div class="project-card__desc-wrap">
+                <p class="project-card__desc">
+                  Quantized autoencoder deployed with TensorFlow Lite Micro on an STM32F4 to
+                  detect vibration anomalies in rotating machinery — inference under 3 ms,
+                  no cloud dependency.
+                </p>
+                <button class="project-card__readmore" aria-expanded="false">Read more</button>
+              </div>
+              <p class="project-card__stack">TFLite Micro · C++ · STM32F4 · Python · Keras</p>
+              <div class="project-card__actions">
+                <a href="#" class="project-card__action" aria-label="GitHub repository" data-hidden="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                  GitHub
+                </a>
+                <a href="#" class="project-card__action project-card__action--ext" aria-label="Live demo" data-hidden="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Skills
+         ============================================================ -->
+    <section id="skills">
+      <div class="container">
+        <p class="section-label">Skills</p>
+        <h2 class="section-title">Technical Stack</h2>
+
+        <!-- REPLACE: update skill items per row -->
+        <div class="skills__table">
+
+          <div class="skill-row">
+            <span class="skill-row__label">→ Embedded &amp; Hardware</span>
+            <div class="skill-row__tags">
+              <span class="skill-tag">STM32</span>
+              <span class="skill-tag">ESP32</span>
+              <span class="skill-tag">Arduino</span>
+              <span class="skill-tag">FreeRTOS</span>
+              <span class="skill-tag">UART / SPI / I²C</span>
+              <span class="skill-tag">LoRaWAN</span>
+              <span class="skill-tag">MQTT</span>
+              <span class="skill-tag">PCB Design</span>
+              <span class="skill-tag">KiCad</span>
+              <span class="skill-tag">Oscilloscope</span>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <span class="skill-row__label">→ Cybersecurity</span>
+            <div class="skill-row__tags">
+              <span class="skill-tag">Network Analysis</span>
+              <span class="skill-tag">Wireshark</span>
+              <span class="skill-tag">Nmap</span>
+              <span class="skill-tag">Metasploit</span>
+              <span class="skill-tag">Burp Suite</span>
+              <span class="skill-tag">Ghidra</span>
+              <span class="skill-tag">Firmware Analysis</span>
+              <span class="skill-tag">OSINT</span>
+              <span class="skill-tag">Linux Hardening</span>
+              <span class="skill-tag">CTF</span>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <span class="skill-row__label">→ AI / Machine Learning</span>
+            <div class="skill-row__tags">
+              <span class="skill-tag">scikit-learn</span>
+              <span class="skill-tag">TensorFlow</span>
+              <span class="skill-tag">Keras</span>
+              <span class="skill-tag">TFLite Micro</span>
+              <span class="skill-tag">pandas</span>
+              <span class="skill-tag">NumPy</span>
+              <span class="skill-tag">Feature Engineering</span>
+              <span class="skill-tag">Anomaly Detection</span>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <span class="skill-row__label">→ Languages &amp; Tools</span>
+            <div class="skill-row__tags">
+              <span class="skill-tag">C</span>
+              <span class="skill-tag">C++</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Bash</span>
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">Linux</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">VS Code</span>
+              <span class="skill-tag">GDB</span>
+              <span class="skill-tag">Makefile</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Blog / Writing
+         ============================================================ -->
+    <section id="blog">
+      <div class="container">
+        <p class="section-label">Writing &amp; Content</p>
+        <h2 class="section-title">Recent Posts</h2>
+
+        <div class="blog__grid">
+
+          <!-- REPLACE: update title, excerpt, date, platform, and href -->
+          <article class="blog-card">
+            <div class="blog-card__meta">
+              <span>May 2025</span>
+              <span class="dot"></span>
+              <span>Medium</span>
+            </div>
+            <h3 class="blog-card__title">Why Embedded Engineers Make Dangerous Pentesters</h3>
+            <p class="blog-card__excerpt">
+              Hardware context changes how you approach software vulnerabilities. When you've
+              read a datasheet at 2 a.m., you think differently about attack surfaces.
+            </p>
+            <a href="#" class="blog-card__link" target="_blank" rel="noopener noreferrer">
+              Read article
+              <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </article>
+
+          <!-- REPLACE: update title, excerpt, date, platform, and href -->
+          <article class="blog-card">
+            <div class="blog-card__meta">
+              <span>Mar 2025</span>
+              <span class="dot"></span>
+              <span>LinkedIn</span>
+            </div>
+            <h3 class="blog-card__title">Breaking Down LoRaWAN Security — What the Spec Gets Right (and Wrong)</h3>
+            <p class="blog-card__excerpt">
+              A walkthrough of LoRaWAN 1.0 and 1.1 session key derivation, replay attack
+              vectors, and practical mitigations for industrial deployments.
+            </p>
+            <a href="#" class="blog-card__link" target="_blank" rel="noopener noreferrer">
+              Read article
+              <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </article>
+
+          <!-- REPLACE: update title, excerpt, date, platform, and href -->
+          <article class="blog-card">
+            <div class="blog-card__meta">
+              <span>Jan 2025</span>
+              <span class="dot"></span>
+              <span>GitHub</span>
+            </div>
+            <h3 class="blog-card__title">TinyML on a Budget: Running Inference on Cortex-M4 Without a Cloud</h3>
+            <p class="blog-card__excerpt">
+              Step-by-step notes on quantising a Keras model, converting it to TFLite,
+              and deploying it to STM32 with latency and power measurements.
+            </p>
+            <a href="#" class="blog-card__link" target="_blank" rel="noopener noreferrer">
+              Read article
+              <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Contact
+         ============================================================ -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact__inner">
+          <p class="section-label" style="text-align:center;">Contact</p>
+          <h2 class="section-title">Get In Touch</h2>
+
+          <!-- REPLACE: update the lead paragraph -->
+          <p class="contact__lead">
+            Open to security research collaborations, embedded consulting,
+            and interesting problems at the intersection of hardware and software.
+            Reach out through any of the channels below.
+          </p>
+
+          <div class="contact__links">
+
+            <!-- REPLACE: update email -->
+            <a href="mailto:zeyad20hisham@gmail.com" class="contact__link contact__link--email" aria-label="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m2 7 10 7 10-7"/>
+              </svg>
+              Email
+            </a>
+
+            <!-- REPLACE: update GitHub URL -->
+            <a href="https://github.com/zeyad-hisham-cyper" class="contact__link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22" fill="currentColor">
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+              </svg>
+              GitHub
+            </a>
+
+            <!-- REPLACE: update LinkedIn URL -->
+            <a href="https://linkedin.com/in/placeholder" class="contact__link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+              LinkedIn
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer>
+    <div class="container">
+      <!-- REPLACE: update year and name if needed -->
+      <p>
+        <span>Zeyad Hisham</span> &mdash; built with HTML, CSS &amp; vanilla JS &mdash; hosted on GitHub Pages
+      </p>
+    </div>
+  </footer>
+
+  <script src="./assets/js/main.js"></script>
+</body>
+</html>
