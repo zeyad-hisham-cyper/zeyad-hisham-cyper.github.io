@@ -1,8 +1,44 @@
 'use strict';
 
 /* ============================================================
-   Custom Cursor (desktop / non-touch only)
-   ============================================================ */
+    Theme Toggle (Light/Dark Mode)
+    ============================================================ */
+(function initThemeToggle() {
+   const toggle = document.getElementById('theme-toggle');
+   const html = document.documentElement;
+   
+   // Check localStorage for saved preference, default to dark theme
+   const savedTheme = localStorage.getItem('theme') || 'dark';
+   
+   function applyTheme(theme) {
+     if (theme === 'light') {
+       html.classList.add('light-theme');
+       toggle.setAttribute('aria-pressed', 'true');
+       document.querySelectorAll('.moon-icon').forEach(el => el.style.opacity = '0');
+       document.querySelectorAll('.sun-icon').forEach(el => el.style.opacity = '1');
+     } else {
+       html.classList.remove('light-theme');
+       toggle.setAttribute('aria-pressed', 'false');
+       document.querySelectorAll('.moon-icon').forEach(el => el.style.opacity = '1');
+       document.querySelectorAll('.sun-icon').forEach(el => el.style.opacity = '0');
+     }
+     localStorage.setItem('theme', theme);
+   }
+   
+   // Apply saved theme on load
+   applyTheme(savedTheme);
+   
+   // Toggle on button click
+   toggle.addEventListener('click', () => {
+     const currentTheme = html.classList.contains('light-theme') ? 'light' : 'dark';
+     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+     applyTheme(newTheme);
+   });
+})();
+
+/* ============================================================
+    Custom Cursor (desktop / non-touch only)
+    ============================================================ */
 (function initCursor() {
   const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   const dot  = document.getElementById('cursor-dot');
@@ -95,25 +131,46 @@
 })();
 
 /* ============================================================
-   Hero Video — 3-minute pause loop
-   ============================================================ */
+    Hero Video — 3-minute pause loop
+    ============================================================ */
 (function initHeroVideo() {
-  const video = document.querySelector('.hero-bg-video');
-  if (!video) return;
+   const video = document.querySelector('.hero-bg-video');
+   if (!video) return;
 
-  const PAUSE_MS  = 180000; // 3 minutes
-  const FADE_MS   = 1000;
+   const PAUSE_MS  = 180000; // 3 minutes
+   const FADE_MS   = 1000;
 
-  video.addEventListener('ended', () => {
-    video.style.transition = 'opacity ' + (FADE_MS / 1000) + 's ease';
-    video.style.opacity = '0';
+   // Ensure video plays on page load (handles mobile autoplay restrictions)
+   function playVideo() {
+     const playPromise = video.play();
+     if (playPromise !== undefined) {
+       playPromise.catch(() => {
+         console.log('Autoplay restricted, will play on user interaction');
+       });
+     }
+   }
 
-    setTimeout(() => {
-      video.currentTime = 0;
-      video.play().catch(() => {});
-      video.style.opacity = '1';
-    }, PAUSE_MS);
-  });
+   // Try to play immediately
+   if (document.readyState === 'loading') {
+     document.addEventListener('DOMContentLoaded', playVideo);
+   } else {
+     playVideo();
+   }
+
+   // Also play on first user interaction (for mobile browsers that block autoplay)
+   document.addEventListener('click', playVideo, { once: true });
+   document.addEventListener('touchstart', playVideo, { once: true });
+
+   video.addEventListener('ended', () => {
+     video.style.transition = 'opacity ' + (FADE_MS / 1000) + 's ease';
+     video.style.opacity = '0';
+
+     setTimeout(() => {
+       video.currentTime = 0;
+       video.play().catch(() => {});
+       video.style.opacity = '1';
+     }, PAUSE_MS);
+   });
 })();
 
 /* ============================================================

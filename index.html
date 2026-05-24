@@ -30,15 +30,25 @@
       <!-- REPLACE: swap initials or add a favicon/logo SVG -->
       <a href="#hero" class="navbar__logo">Zeyad<span>·</span>Hisham</a>
       <ul class="navbar__links" role="list">
-        <li><a href="#about"      data-section="about">About</a></li>
-        <li><a href="#education"  data-section="education">Education</a></li>
-        <li><a href="#experience" data-section="experience">Experience</a></li>
-        <li><a href="#projects"   data-section="projects">Projects</a></li>
-        <li><a href="#awards"     data-section="awards">Awards</a></li>
-        <li><a href="#skills"     data-section="skills">Skills</a></li>
-        <li><a href="#zdomain"    data-section="zdomain">Z-Domain</a></li>
-        <li><a href="#contact"    data-section="contact">Contact</a></li>
+         <li><a href="#about"      data-section="about">About</a></li>
+         <li><a href="#education"  data-section="education">Education</a></li>
+         <li><a href="#experience" data-section="experience">Experience</a></li>
+         <li><a href="#projects"   data-section="projects">Projects</a></li>
+         <li><a href="#awards"     data-section="awards">Awards</a></li>
+         <li><a href="#skills"     data-section="skills">Skills</a></li>
+         <li><a href="#zdomain"    data-section="zdomain">Z-Domain</a></li>
+         <li><a href="#contact"    data-section="contact">Contact</a></li>
+         <li><a href="https://drive.google.com/file/d/1GQoOLj86eShENKbTmpekqXq9KFy5lmvO/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn--secondary" style="padding: 0.35rem 0.85rem; font-size: 10px; margin-top: 0;">CV</a></li>
       </ul>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" aria-pressed="false" title="Toggle theme">
+        <svg class="theme-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+          <!-- Sun icon for dark theme -->
+          <circle class="sun-icon" cx="12" cy="12" r="5" style="opacity: 0; transition: opacity 0.3s ease;"/>
+          <path class="sun-icon" d="M12 2v6m0 8v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M2 12h6m8 0h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="opacity: 0; transition: opacity 0.3s ease;"/>
+          <!-- Moon icon for light theme -->
+          <path class="moon-icon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="1.5" fill="none" style="opacity: 1; transition: opacity 0.3s ease;"/>
+        </svg>
+      </button>
       <button class="navbar__toggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -51,7 +61,7 @@
          Hero
          ============================================================ -->
     <section id="hero">
-      <video autoplay muted playsinline class="hero-bg-video" src="./assets/video/hero.mp4"></video>
+      <video autoplay muted playsinline loop class="hero-bg-video" src="./assets/video/hero.mp4" preload="auto"></video>
       <div class="hero__overlay" aria-hidden="true"></div>
       <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
