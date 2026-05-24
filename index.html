@@ -51,7 +51,7 @@
          Hero
          ============================================================ -->
     <section id="hero">
-      <video autoplay muted playsinline class="hero-bg-video" src="./assets/images/hero.mp4"></video>
+      <video autoplay muted playsinline class="hero-bg-video" src="./assets/video/hero.mp4"></video>
       <div class="hero__overlay" aria-hidden="true"></div>
       <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
@@ -213,7 +213,7 @@
             </div>
             <div class="exp-card__body">
               <div class="exp-card__header">
-                <img class="exp-card__logo" src="./assets/images/experience/Nokia/Nokia_logo.svg" alt="Nokia" onerror="this.src='./assets/images/image_not_found.png'" />
+                <img class="exp-card__logo" src="./assets/images/experience/Nokia/Nokia_logo.svg" alt="Nokia" onerror="this.style.display='none';const label=document.createElement('span');label.textContent='Nokia';label.style.fontFamily='Space Grotesk';label.style.fontSize='14px';label.style.color='var(--text-muted)';this.parentNode.replaceChild(label,this);" />
                 <div>
                   <h3 class="exp-card__role">Mobile Network Trainee</h3>
                   <p class="exp-card__company">Nokia Egypt</p>

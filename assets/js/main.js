@@ -190,94 +190,106 @@
 })();
 
 /* ============================================================
-   Hero Role Cycling — type / delete loop
-   ============================================================ */
+    Hero Role Cycling — type / delete loop
+    ============================================================ */
 (function initRoleCycling() {
-  const el = document.getElementById('role-text');
-  if (!el) return;
+   const el = document.getElementById('role-text');
+   if (!el) return;
 
-  const ROLES = [
-    'Embedded Systems Engineer',
-    'Cybersecurity Researcher',
-    'AI / ML Developer',
-    'IoT Security Specialist',
-    'Robotics & Automation Lead',
-  ];
+   const ROLES = [
+     'Embedded Systems Engineer',
+     'Cybersecurity Researcher',
+     'AI / ML Developer',
+     'IoT Security Specialist',
+     'Robotics & Automation Lead',
+   ];
 
-  const TYPE_MS            = 55;
-  const DELETE_MS          = 30;
-  const PAUSE_AFTER_TYPE   = 1800;
-  const PAUSE_AFTER_DELETE = 400;
+   const TYPE_MS            = 55;
+   const DELETE_MS          = 30;
+   const PAUSE_AFTER_TYPE   = 1800;
+   const PAUSE_AFTER_DELETE = 400;
 
-  let roleIdx = 0;
+   let roleIdx = 0;
 
-  function typeRole(text, onDone) {
-    let i = 0;
-    function step() {
-      if (i < text.length) {
-        el.textContent = text.slice(0, ++i);
-        setTimeout(step, TYPE_MS);
-      } else {
-        setTimeout(onDone, PAUSE_AFTER_TYPE);
-      }
-    }
-    step();
-  }
+   function typeRole(text, onDone) {
+     let i = 0;
+     function step() {
+       if (i < text.length) {
+         el.textContent = text.slice(0, ++i);
+         setTimeout(step, TYPE_MS);
+       } else {
+         setTimeout(onDone, PAUSE_AFTER_TYPE);
+       }
+     }
+     step();
+   }
 
-  function deleteRole(onDone) {
-    function step() {
-      if (el.textContent.length > 0) {
-        el.textContent = el.textContent.slice(0, -1);
-        setTimeout(step, DELETE_MS);
-      } else {
-        setTimeout(onDone, PAUSE_AFTER_DELETE);
-      }
-    }
-    step();
-  }
+   function deleteRole(onDone) {
+     function step() {
+       if (el.textContent.length > 0) {
+         el.textContent = el.textContent.slice(0, -1);
+         setTimeout(step, DELETE_MS);
+       } else {
+         setTimeout(onDone, PAUSE_AFTER_DELETE);
+       }
+     }
+     step();
+   }
 
-  function cycle() {
-    typeRole(ROLES[roleIdx], () => {
-      deleteRole(() => {
-        roleIdx = (roleIdx + 1) % ROLES.length;
-        cycle();
-      });
-    });
-  }
+   function cycle() {
+     typeRole(ROLES[roleIdx], () => {
+       deleteRole(() => {
+         roleIdx = (roleIdx + 1) % ROLES.length;
+         cycle();
+       });
+     });
+   }
 
-  setTimeout(cycle, 1200);
+   // Start immediately on DOMContentLoaded (no initial delay)
+   if (document.readyState === 'loading') {
+     document.addEventListener('DOMContentLoaded', cycle);
+   } else {
+     cycle();
+   }
 })();
 
 /* ============================================================
-   Hero Typing Animation (terminal line)
-   ============================================================ */
+    Hero Typing Animation (terminal line)
+    ============================================================ */
 (function initTyping() {
-  const pre    = document.getElementById('terminal-pre');
-  const active = document.getElementById('terminal-active');
-  if (!pre || !active) return;
+   const pre    = document.getElementById('terminal-pre');
+   const active = document.getElementById('terminal-active');
+   if (!pre || !active) return;
 
-  const PRE_TEXT    = '> whoami --stack embedded,ai,security --status ';
-  const ACTIVE_TEXT = 'active';
+   const PRE_TEXT    = '> whoami --stack embedded,ai,security --status ';
+   const ACTIVE_TEXT = 'active';
 
-  setTimeout(() => {
-    let i = 0;
-    function typePre() {
-      if (i < PRE_TEXT.length) {
-        pre.textContent += PRE_TEXT[i++];
-        setTimeout(typePre, 38);
-      } else {
-        let j = 0;
-        function typeActive() {
-          if (j < ACTIVE_TEXT.length) {
-            active.textContent += ACTIVE_TEXT[j++];
-            setTimeout(typeActive, 38);
-          }
-        }
-        typeActive();
-      }
-    }
-    typePre();
-  }, 900);
+   function startTyping() {
+     let i = 0;
+     function typePre() {
+       if (i < PRE_TEXT.length) {
+         pre.textContent += PRE_TEXT[i++];
+         setTimeout(typePre, 38);
+       } else {
+         let j = 0;
+         function typeActive() {
+           if (j < ACTIVE_TEXT.length) {
+             active.textContent += ACTIVE_TEXT[j++];
+             setTimeout(typeActive, 38);
+           }
+         }
+         typeActive();
+       }
+     }
+     typePre();
+   }
+
+   // Start immediately on DOMContentLoaded (no initial delay)
+   if (document.readyState === 'loading') {
+     document.addEventListener('DOMContentLoaded', startTyping);
+   } else {
+     startTyping();
+   }
 })();
 
 /* ============================================================
@@ -336,105 +348,141 @@
 })();
 
 /* ============================================================
-   Swap Media — cycling images on .swap-media containers
-   ============================================================ */
+    Swap Media — cycling images on .swap-media containers
+    ============================================================ */
 (function initSwapMedia() {
-  document.querySelectorAll('.swap-media[data-interval]').forEach(container => {
-    const imgs = Array.from(container.querySelectorAll('.swap-img'));
-    if (imgs.length < 2) return;
+   document.querySelectorAll('.swap-media[data-interval]').forEach(container => {
+     const imgs = Array.from(container.querySelectorAll('.swap-img'));
+     if (imgs.length < 2) return;
 
-    const interval = parseInt(container.dataset.interval, 10) || 3000;
-    let current = imgs.findIndex(img => img.classList.contains('active'));
-    if (current < 0) current = 0;
+     const interval = parseInt(container.dataset.interval, 10) || 3000;
+     let current = imgs.findIndex(img => img.classList.contains('active'));
+     if (current < 0) {
+       current = 0;
+       // Ensure first image is active if none marked
+       imgs[0].classList.add('active');
+     }
 
-    setInterval(() => {
-      imgs[current].classList.remove('active');
-      current = (current + 1) % imgs.length;
-      imgs[current].classList.add('active');
-    }, interval);
-  });
+     setInterval(() => {
+       imgs[current].classList.remove('active');
+       current = (current + 1) % imgs.length;
+       imgs[current].classList.add('active');
+     }, interval);
+   });
 })();
 
 /* ============================================================
-   Heading Text Reveal (overflow:hidden clip up)
-   ============================================================ */
+    Heading Text Reveal (overflow:hidden clip up)
+    ============================================================ */
 (function initHeadingReveal() {
-  document.querySelectorAll('.section-eyebrow, .section-heading').forEach(el => {
-    const inner = document.createElement('span');
-    inner.className = 'reveal-inner';
-    inner.innerHTML = el.innerHTML;
-    el.innerHTML = '';
-    el.appendChild(inner);
-  });
+   document.querySelectorAll('.section-eyebrow, .section-heading').forEach(el => {
+     const inner = document.createElement('span');
+     inner.className = 'reveal-inner';
+     inner.innerHTML = el.innerHTML;
+     el.innerHTML = '';
+     el.appendChild(inner);
+   });
 
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const inner = entry.target.querySelector('.reveal-inner');
-      if (inner) inner.classList.add('revealed');
-      obs.unobserve(entry.target);
-    });
-  }, { threshold: 0.1 });
+   const obs = new IntersectionObserver(entries => {
+     entries.forEach(entry => {
+       if (!entry.isIntersecting) return;
+       const inner = entry.target.querySelector('.reveal-inner');
+       if (inner) inner.classList.add('revealed');
+       obs.unobserve(entry.target);
+     });
+   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.section-eyebrow, .section-heading').forEach(el => obs.observe(el));
+   document.querySelectorAll('.section-eyebrow, .section-heading').forEach(el => {
+     // Check if element is already in viewport on page load
+     const rect = el.getBoundingClientRect();
+     const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+     
+     if (isVisible) {
+       const inner = el.querySelector('.reveal-inner');
+       if (inner) {
+         inner.classList.add('revealed');
+       }
+     } else {
+       obs.observe(el);
+     }
+   });
 })();
 
 /* ============================================================
-   Scroll Reveal — section children stagger
-   ============================================================ */
+    Scroll Reveal — section children stagger
+    ============================================================ */
 (function initReveal() {
-  const SELECTORS = [
-    '#about .about__text > p',
-    '#about .about__stats',
-    '#about .photo-frame',
-    '#education .edu-card',
-    '#experience .exp-card',
-    '#awards .award-card',
-    '#contact .contact__heading',
-    '#contact .contact__links',
-    '#projects .filter-bar',
-  ];
+   const SELECTORS = [
+     '#about .about__text > p',
+     '#about .about__stats',
+     '#about .photo-frame',
+     '#education .edu-card',
+     '#experience .exp-card',
+     '#awards .award-card',
+     '#contact .contact__heading',
+     '#contact .contact__links',
+     '#projects .filter-bar',
+   ];
 
-  const allEls = document.querySelectorAll(SELECTORS.join(','));
+   const allEls = document.querySelectorAll(SELECTORS.join(','));
 
-  const sections = new Map();
-  allEls.forEach(el => {
-    const sec = el.closest('section');
-    if (!sections.has(sec)) sections.set(sec, []);
-    sections.get(sec).push(el);
-  });
+   const sections = new Map();
+   allEls.forEach(el => {
+     const sec = el.closest('section');
+     if (!sections.has(sec)) sections.set(sec, []);
+     sections.get(sec).push(el);
+   });
 
-  sections.forEach(els => {
-    els.forEach((el, i) => {
-      el.classList.add('reveal-up');
-      el.style.transitionDelay = (i * 80) + 'ms';
-    });
-  });
+   sections.forEach(els => {
+     els.forEach((el, i) => {
+       el.classList.add('reveal-up');
+       el.style.transitionDelay = (i * 80) + 'ms';
+     });
+   });
 
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('visible');
-      obs.unobserve(entry.target);
-    });
-  }, { threshold: 0.08 });
+   const obs = new IntersectionObserver(entries => {
+     entries.forEach(entry => {
+       if (!entry.isIntersecting) return;
+       entry.target.classList.add('visible');
+       obs.unobserve(entry.target);
+     });
+   }, { threshold: 0.08 });
 
-  allEls.forEach(el => obs.observe(el));
+   allEls.forEach(el => {
+     // Check if element is already in viewport on page load
+     const rect = el.getBoundingClientRect();
+     const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+     
+     if (isVisible) {
+       el.classList.add('visible');
+     } else {
+       obs.observe(el);
+     }
+   });
 
-  // Project cards — individual stagger
-  const cardObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('visible');
-      cardObs.unobserve(entry.target);
-    });
-  }, { threshold: 0.06 });
+   // Project cards — individual stagger
+   const cardObs = new IntersectionObserver(entries => {
+     entries.forEach(entry => {
+       if (!entry.isIntersecting) return;
+       entry.target.classList.add('visible');
+       cardObs.unobserve(entry.target);
+     });
+   }, { threshold: 0.06 });
 
-  document.querySelectorAll('.project-card').forEach((card, i) => {
-    card.classList.add('reveal-up');
-    card.style.transitionDelay = (i % 2 * 80) + 'ms';
-    cardObs.observe(card);
-  });
+   document.querySelectorAll('.project-card').forEach((card, i) => {
+     card.classList.add('reveal-up');
+     card.style.transitionDelay = (i % 2 * 80) + 'ms';
+     
+     // Check if card is already in viewport on page load
+     const rect = card.getBoundingClientRect();
+     const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+     
+     if (isVisible) {
+       card.classList.add('visible');
+     } else {
+       cardObs.observe(card);
+     }
+   });
 })();
 
 /* ============================================================

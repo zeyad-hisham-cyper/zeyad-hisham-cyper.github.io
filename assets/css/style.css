@@ -31,7 +31,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--navbar-h);
-  font-size: 18px;
+  font-size: 18px !important;
 }
 
 body {
@@ -160,27 +160,32 @@ button { cursor: pointer; font-family: inherit; }
 }
 .reveal-up.visible { opacity: 1; transform: translateY(0); }
 
-section { padding-block: clamp(100px, 12vw, 160px); position: relative; }
+section { padding-block: clamp(100px, 12vw, 160px) !important; position: relative; }
 
 /* ============================================================
    Swap Media
    ============================================================ */
 .swap-media {
-  position: relative;
-  overflow: hidden;
+   position: relative;
+   overflow: hidden;
 }
 
 .swap-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.7s ease;
+   position: absolute;
+   inset: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   opacity: 0;
+   transition: opacity 0.7s ease;
 }
 
 .swap-img.active { opacity: 1; }
+
+/* Force first image visible by default if no active class yet */
+.swap-img:first-child:not(.active) {
+   opacity: 1;
+}
 
 /* ============================================================
    Navbar
@@ -222,18 +227,18 @@ section { padding-block: clamp(100px, 12vw, 160px); position: relative; }
 .navbar__logo span { color: var(--accent); }
 
 .navbar__links {
-  display: flex;
-  gap: 1.75rem;
-  align-items: center;
+   display: flex;
+   gap: clamp(2rem, 4vw, 2.5rem);
+   align-items: center;
 }
 
 .navbar__links a {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-mid);
-  transition: color 0.2s;
+   font-family: var(--font-mono);
+   font-size: clamp(11px, 1.5vw, 14px);
+   letter-spacing: 0.12em;
+   text-transform: uppercase;
+   color: var(--text-mid);
+   transition: color 0.2s;
 }
 
 .navbar__links a.active,
@@ -312,12 +317,14 @@ section { padding-block: clamp(100px, 12vw, 160px); position: relative; }
 
 /* Hero content container */
 .hero__container {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  position: relative;
-  z-index: 3;
-  padding-top: var(--navbar-h);
+   flex: 1;
+   display: flex;
+   align-items: center;
+   position: relative;
+   z-index: 3;
+   padding-top: var(--navbar-h);
+   min-height: 100vh;
+   padding: clamp(100px, 12vw, 160px) clamp(24px, 6vw, 80px) !important;
 }
 
 .hero__grid {
@@ -343,11 +350,11 @@ section { padding-block: clamp(100px, 12vw, 160px); position: relative; }
 }
 
 .hero__name {
-  font-size: clamp(5rem, 12vw, 9rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  margin-bottom: 1.25rem;
+   font-size: clamp(5rem, 12vw, 9rem) !important;
+   font-weight: 700;
+   letter-spacing: -0.04em;
+   line-height: 0.92;
+   margin-bottom: 1.25rem;
 }
 
 .hero__name-line {
@@ -475,9 +482,10 @@ section { padding-block: clamp(100px, 12vw, 160px); position: relative; }
 }
 
 .knight-img {
-  width: clamp(260px, 28vw, 420px);
-  filter: drop-shadow(0 32px 80px rgba(139, 32, 32, 0.35));
-  animation: knightFloat 6s ease-in-out infinite;
+   width: clamp(260px, 28vw, 420px) !important;
+   max-width: none !important;
+   filter: drop-shadow(0 32px 80px rgba(139, 32, 32, 0.35));
+   animation: knightFloat 6s ease-in-out infinite;
 }
 
 /* ============================================================
