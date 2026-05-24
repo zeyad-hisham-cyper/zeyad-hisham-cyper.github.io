@@ -95,6 +95,28 @@
 })();
 
 /* ============================================================
+   Hero Video — 3-minute pause loop
+   ============================================================ */
+(function initHeroVideo() {
+  const video = document.querySelector('.hero-bg-video');
+  if (!video) return;
+
+  const PAUSE_MS  = 180000; // 3 minutes
+  const FADE_MS   = 1000;
+
+  video.addEventListener('ended', () => {
+    video.style.transition = 'opacity ' + (FADE_MS / 1000) + 's ease';
+    video.style.opacity = '0';
+
+    setTimeout(() => {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+      video.style.opacity = '1';
+    }, PAUSE_MS);
+  });
+})();
+
+/* ============================================================
    Hero Canvas — Particle System
    ============================================================ */
 (function initParticles() {
@@ -168,7 +190,66 @@
 })();
 
 /* ============================================================
-   Hero Typing Animation
+   Hero Role Cycling — type / delete loop
+   ============================================================ */
+(function initRoleCycling() {
+  const el = document.getElementById('role-text');
+  if (!el) return;
+
+  const ROLES = [
+    'Embedded Systems Engineer',
+    'Cybersecurity Researcher',
+    'AI / ML Developer',
+    'IoT Security Specialist',
+    'Robotics & Automation Lead',
+  ];
+
+  const TYPE_MS            = 55;
+  const DELETE_MS          = 30;
+  const PAUSE_AFTER_TYPE   = 1800;
+  const PAUSE_AFTER_DELETE = 400;
+
+  let roleIdx = 0;
+
+  function typeRole(text, onDone) {
+    let i = 0;
+    function step() {
+      if (i < text.length) {
+        el.textContent = text.slice(0, ++i);
+        setTimeout(step, TYPE_MS);
+      } else {
+        setTimeout(onDone, PAUSE_AFTER_TYPE);
+      }
+    }
+    step();
+  }
+
+  function deleteRole(onDone) {
+    function step() {
+      if (el.textContent.length > 0) {
+        el.textContent = el.textContent.slice(0, -1);
+        setTimeout(step, DELETE_MS);
+      } else {
+        setTimeout(onDone, PAUSE_AFTER_DELETE);
+      }
+    }
+    step();
+  }
+
+  function cycle() {
+    typeRole(ROLES[roleIdx], () => {
+      deleteRole(() => {
+        roleIdx = (roleIdx + 1) % ROLES.length;
+        cycle();
+      });
+    });
+  }
+
+  setTimeout(cycle, 1200);
+})();
+
+/* ============================================================
+   Hero Typing Animation (terminal line)
    ============================================================ */
 (function initTyping() {
   const pre    = document.getElementById('terminal-pre');
@@ -255,6 +336,26 @@
 })();
 
 /* ============================================================
+   Swap Media — cycling images on .swap-media containers
+   ============================================================ */
+(function initSwapMedia() {
+  document.querySelectorAll('.swap-media[data-interval]').forEach(container => {
+    const imgs = Array.from(container.querySelectorAll('.swap-img'));
+    if (imgs.length < 2) return;
+
+    const interval = parseInt(container.dataset.interval, 10) || 3000;
+    let current = imgs.findIndex(img => img.classList.contains('active'));
+    if (current < 0) current = 0;
+
+    setInterval(() => {
+      imgs[current].classList.remove('active');
+      current = (current + 1) % imgs.length;
+      imgs[current].classList.add('active');
+    }, interval);
+  });
+})();
+
+/* ============================================================
    Heading Text Reveal (overflow:hidden clip up)
    ============================================================ */
 (function initHeadingReveal() {
@@ -286,9 +387,9 @@
     '#about .about__text > p',
     '#about .about__stats',
     '#about .photo-frame',
-    '#experience .timeline-item',
-    '#awards .award-item',
-    '#writing .writing-card',
+    '#education .edu-card',
+    '#experience .exp-card',
+    '#awards .award-card',
     '#contact .contact__heading',
     '#contact .contact__links',
     '#projects .filter-bar',
@@ -296,7 +397,6 @@
 
   const allEls = document.querySelectorAll(SELECTORS.join(','));
 
-  // Group by parent section for per-section stagger
   const sections = new Map();
   allEls.forEach(el => {
     const sec = el.closest('section');

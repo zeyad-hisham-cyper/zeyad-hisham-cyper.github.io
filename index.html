@@ -31,11 +31,12 @@
       <a href="#hero" class="navbar__logo">Zeyad<span>·</span>Hisham</a>
       <ul class="navbar__links" role="list">
         <li><a href="#about"      data-section="about">About</a></li>
+        <li><a href="#education"  data-section="education">Education</a></li>
         <li><a href="#experience" data-section="experience">Experience</a></li>
         <li><a href="#projects"   data-section="projects">Projects</a></li>
-        <li><a href="#skills"     data-section="skills">Skills</a></li>
         <li><a href="#awards"     data-section="awards">Awards</a></li>
-        <li><a href="#writing"    data-section="writing">Writing</a></li>
+        <li><a href="#skills"     data-section="skills">Skills</a></li>
+        <li><a href="#zdomain"    data-section="zdomain">Z-Domain</a></li>
         <li><a href="#contact"    data-section="contact">Contact</a></li>
       </ul>
       <button class="navbar__toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -50,8 +51,9 @@
          Hero
          ============================================================ -->
     <section id="hero">
+      <video autoplay muted playsinline class="hero-bg-video" src="./assets/images/hero.mp4"></video>
+      <div class="hero__overlay" aria-hidden="true"></div>
       <canvas id="hero-canvas" aria-hidden="true"></canvas>
-      <div class="hero__vignette" aria-hidden="true"></div>
 
       <div class="container hero__container">
         <div class="hero__grid">
@@ -64,12 +66,14 @@
               <span class="hero__name-line"><span class="accent">Hisham</span></span>
             </h1>
 
-            <p class="hero__subtitle">Engineer who builds systems — then breaks them.</p>
+            <div class="hero__role-type" aria-live="polite">
+              <span id="role-text"></span><span class="role-cursor" aria-hidden="true">▋</span>
+            </div>
 
             <div class="hero__rule" aria-hidden="true"></div>
 
             <!-- REPLACE: quote -->
-            <p class="hero__quote">I build things that talk to the physical world —<br>then I figure out how to break them.</p>
+            <p class="hero__subtitle">Engineer who builds systems — then breaks them.</p>
 
             <p class="hero__terminal">
               <span id="terminal-pre"></span><span id="terminal-active"></span><span class="terminal-cursor" aria-hidden="true">▋</span>
@@ -77,7 +81,7 @@
 
             <div class="hero__cta">
               <a href="#projects" class="btn btn--primary">View Projects</a>
-              <a href="./assets/cv/resume.pdf" class="btn btn--secondary" download>Download CV</a>
+              <a href="mailto:zeyad20hisham@gmail.com" class="btn btn--secondary">Hire Me</a>
             </div>
           </div>
 
@@ -139,113 +143,156 @@
             </div>
           </div>
 
-          <div class="photo-frame">
-            <!-- REPLACE: add your photo -->
-            <img src="./assets/images/photo.jpg" alt="Zeyad Hisham" onerror="this.style.display='none'" />
+          <div class="about__photo-col">
+            <!-- REPLACE: confirm photo filenames -->
+            <div class="photo-frame swap-media" data-interval="4000">
+              <img src="./assets/images/Who%20am%20I.jpeg" class="about-photo swap-img active" alt="Zeyad Hisham" onerror="this.src='./assets/images/image_not_found.png'" />
+              <img src="./assets/images/Who%20Am%20I.jpg" class="about-photo swap-img" alt="Zeyad Hisham" onerror="this.src='./assets/images/image_not_found.png'" />
+              <div class="availability-badge">
+                <span class="badge-dot" aria-hidden="true"></span>
+                <span>Open to work — Internships &amp; Full-time Roles</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         Experience & Education
+         Education
+         ============================================================ -->
+    <section id="education">
+      <div class="container">
+        <p class="section-eyebrow">// Education</p>
+        <h2 class="section-heading">Academic Background</h2>
+
+        <div class="edu-grid">
+
+          <div class="edu-card">
+            <img class="edu-card__logo" src="./assets/images/education/STEM_Egypt.png" alt="STEM Egypt" onerror="this.src='./assets/images/image_not_found.png'" />
+            <h3 class="edu-card__name">STEM Egypt</h3>
+            <p class="edu-card__level">High School — STEM Program</p>
+            <p class="edu-card__dates">2019 – 2021</p>
+            <div class="edu-card__gpa-wrap">
+              <span class="edu-card__gpa-label">// GPA</span>
+              <span class="edu-card__gpa">3.9</span>
+            </div>
+          </div>
+
+          <div class="edu-card">
+            <img class="edu-card__logo" src="./assets/images/education/MIU.png" alt="Misr International University" onerror="this.src='./assets/images/image_not_found.png'" />
+            <h3 class="edu-card__name">Misr International University</h3>
+            <p class="edu-card__level">B.S. Electronics &amp; Communications Engineering</p>
+            <p class="edu-card__dates">2021 – 2026</p>
+            <p class="edu-card__scholarship">Merit-Based Full Scholarship</p>
+            <div class="edu-card__gpa-wrap">
+              <span class="edu-card__gpa-label">// GPA</span>
+              <span class="edu-card__gpa">3.74</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Experience
          ============================================================ -->
     <section id="experience">
       <div class="container">
-        <p class="section-eyebrow">// Experience &amp; Education</p>
-        <h2 class="section-heading">Timeline</h2>
+        <p class="section-eyebrow">// Experience</p>
+        <h2 class="section-heading">Work History</h2>
 
-        <div class="timeline">
+        <div class="exp-grid">
 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-body">
-              <span class="timeline-date">Aug 2025</span>
-              <h3 class="timeline-role">Mobile Network Trainee</h3>
-              <p class="timeline-org">Nokia Egypt</p>
-              <p class="timeline-desc">Gained practical exposure to the full 2G–5G network evolution stack, including LTE and 5G fundamentals and radio planning workflows. Explored AI applications in telecom operations and worked with Power BI dashboards for network performance monitoring and sustainable energy solutions in telecom infrastructure.</p>
+          <!-- Nokia Egypt -->
+          <article class="exp-card exp-card--has-photos">
+            <div class="exp-card__media swap-media" data-interval="4000">
+              <img src="./assets/images/experience/Nokia/Nokia1.jpeg" class="swap-img active" alt="Nokia internship" onerror="this.src='./assets/images/image_not_found.png'" />
+              <img src="./assets/images/experience/Nokia/Nokia2.jpeg" class="swap-img" alt="Nokia internship" onerror="this.src='./assets/images/image_not_found.png'" />
             </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-body">
-              <span class="timeline-date">Summer 2025</span>
-              <h3 class="timeline-role">Rapid Prototyping Intern</h3>
-              <p class="timeline-org">Sector B5</p>
-              <p class="timeline-desc">Built embedded applications integrating hardware and software across C++, Python, and Raspberry Pi. Delivered a capstone project combining digital fabrication — CNC, laser cutting, and 3D printing — with embedded control systems.</p>
+            <div class="exp-card__body">
+              <div class="exp-card__header">
+                <img class="exp-card__logo" src="./assets/images/experience/Nokia/Nokia_logo.svg" alt="Nokia" onerror="this.src='./assets/images/image_not_found.png'" />
+                <div>
+                  <h3 class="exp-card__role">Mobile Network Trainee</h3>
+                  <p class="exp-card__company">Nokia Egypt</p>
+                </div>
+              </div>
+              <p class="exp-card__date">Aug 2025</p>
+              <p class="exp-card__desc">Gained practical exposure to the full 2G–5G network evolution stack, including LTE and 5G fundamentals and radio planning workflows. Explored AI applications in telecom operations and worked with Power BI dashboards for network performance monitoring and sustainable energy solutions in telecom infrastructure.</p>
+              <span class="exp-type-tag">Internship</span>
             </div>
-          </div>
+          </article>
 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-body">
-              <span class="timeline-date">2023 – 2026</span>
-              <h3 class="timeline-role">Junior Teaching Assistant</h3>
-              <p class="timeline-org">Misr International University</p>
-              <p class="timeline-desc">Delivered embedded systems labs and programming sessions in C and C++ to 50+ students per semester. Provided mentorship on technical projects and guided students through competitive engineering challenges.</p>
+          <!-- Sector B5 -->
+          <article class="exp-card">
+            <div class="exp-card__body">
+              <div class="exp-card__header">
+                <img class="exp-card__logo" src="./assets/images/experience/Sector%20B5/sectorB5%20%20Logo.png" alt="Sector B5" onerror="this.src='./assets/images/image_not_found.png'" />
+                <div>
+                  <h3 class="exp-card__role">Rapid Prototyping Intern</h3>
+                  <p class="exp-card__company">Sector B5</p>
+                </div>
+              </div>
+              <p class="exp-card__date">Summer 2025</p>
+              <p class="exp-card__desc">Built embedded applications integrating hardware and software across C++, Python, and Raspberry Pi. Delivered a capstone project combining digital fabrication — CNC, laser cutting, and 3D printing — with embedded control systems.</p>
+              <span class="exp-type-tag">Internship</span>
             </div>
-          </div>
+          </article>
 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-body">
-              <span class="timeline-date">Ongoing</span>
-              <h3 class="timeline-role">Chief Technical Officer</h3>
-              <p class="timeline-org">ROBIX</p>
-              <p class="timeline-desc">Led the technical direction of a robotics education startup that reached 800+ students across Egypt. Directed AI and robotics application development, managed cross-functional engineering teams, and drove the product roadmap from concept to classroom deployment.</p>
+          <!-- ROBIX -->
+          <article class="exp-card exp-card--has-photos">
+            <div class="exp-card__media swap-media" data-interval="4000">
+              <img src="./assets/images/experience/ROBIX/IMG_8083.jpg" class="swap-img active" alt="ROBIX" onerror="this.src='./assets/images/image_not_found.png'" />
+              <img src="./assets/images/experience/ROBIX/photo_2023-02-19_22-37-15.jpg" class="swap-img" alt="ROBIX" onerror="this.src='./assets/images/image_not_found.png'" />
+              <img src="./assets/images/experience/ROBIX/ROBIX.jpeg" class="swap-img" alt="ROBIX" onerror="this.src='./assets/images/image_not_found.png'" />
             </div>
-          </div>
+            <div class="exp-card__body">
+              <div class="exp-card__header">
+                <img class="exp-card__logo" src="./assets/images/experience/ROBIX/Logo.png" alt="ROBIX" onerror="this.src='./assets/images/image_not_found.png'" />
+                <div>
+                  <h3 class="exp-card__role">Chief Technical Officer</h3>
+                  <p class="exp-card__company">ROBIX</p>
+                </div>
+              </div>
+              <p class="exp-card__date">Ongoing</p>
+              <p class="exp-card__desc">Led the technical direction of a robotics education startup that reached 800+ students across Egypt. Directed AI and robotics application development, managed cross-functional engineering teams, and drove the product roadmap from concept to classroom deployment.</p>
+              <span class="exp-type-tag">Full-time</span>
+            </div>
+          </article>
 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-body">
-              <span class="timeline-date">Digital Egypt Youth Program · 120 hrs</span>
-              <h3 class="timeline-role">Fortinet Cybersecurity Program</h3>
-              <p class="timeline-org">NTI</p>
-              <p class="timeline-desc">Completed Fortinet's cybersecurity training track under the national Digital Egypt Youth Program, covering network security fundamentals, threat detection, and security operations.</p>
+          <!-- NTI / Fortinet -->
+          <article class="exp-card">
+            <div class="exp-card__body">
+              <div class="exp-card__header">
+                <img class="exp-card__logo" src="./assets/images/experience/NTI.png" alt="NTI" onerror="this.src='./assets/images/image_not_found.png'" />
+                <div>
+                  <h3 class="exp-card__role">Fortinet Cybersecurity Program</h3>
+                  <p class="exp-card__company">NTI</p>
+                </div>
+              </div>
+              <p class="exp-card__date">Digital Egypt Youth Program · 120 hrs</p>
+              <p class="exp-card__desc">Completed Fortinet's cybersecurity training track under the national Digital Egypt Youth Program, covering network security fundamentals, threat detection, and security operations.</p>
+              <span class="exp-type-tag">Training</span>
             </div>
-          </div>
+          </article>
 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-body">
-              <span class="timeline-date">Mar 2022 – Sep 2024</span>
-              <h3 class="timeline-role">Chief of Technical &amp; Academic Sector</h3>
-              <p class="timeline-org">IEEE MIU Chapter</p>
-              <p class="timeline-desc">Led robotics training programs, organized technical workshops, and ran internal engineering competitions. Grew the chapter's technical output and community engagement over two years.</p>
+          <!-- MIU Junior TA -->
+          <article class="exp-card">
+            <div class="exp-card__body">
+              <div class="exp-card__header">
+                <img class="exp-card__logo" src="./assets/images/education/MIU.png" alt="Misr International University" onerror="this.src='./assets/images/image_not_found.png'" />
+                <div>
+                  <h3 class="exp-card__role">Junior Teaching Assistant</h3>
+                  <p class="exp-card__company">Misr International University</p>
+                </div>
+              </div>
+              <p class="exp-card__date">2023 – 2026</p>
+              <p class="exp-card__desc">Delivered embedded systems labs and programming sessions in C and C++ to 50+ students per semester. Provided mentorship on technical projects and guided students through competitive engineering challenges.</p>
+              <span class="exp-type-tag">Part-time</span>
             </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-body">
-              <span class="timeline-date">2021 – 2026</span>
-              <h3 class="timeline-role">B.S. Electronics and Communications Engineering</h3>
-              <p class="timeline-org">Misr International University — Merit-Based Full Scholarship</p>
-              <p class="timeline-desc">GPA: 3.74 · Ranked 1st among peers across three consecutive academic years.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-body">
-              <span class="timeline-date">Sep 2020 – Sep 2021</span>
-              <h3 class="timeline-role">President &amp; Instructor</h3>
-              <p class="timeline-org">Hack Club</p>
-              <p class="timeline-desc">Launched a local chapter from scratch. Trained students in Python and Arduino, building a hands-on programming culture at the high school level.</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-body">
-              <span class="timeline-date">2019 – 2021</span>
-              <h3 class="timeline-role">High School — STEM Program</h3>
-              <p class="timeline-org">STEM Egypt</p>
-              <p class="timeline-desc">GPA: 3.9 · Published research and won Best Paper Award at ICFD14 before graduation.</p>
-            </div>
-          </div>
+          </article>
 
         </div>
       </div>
@@ -269,9 +316,13 @@
 
         <div class="projects__grid">
 
-          <!-- Publication — full row -->
+          <!-- Publication card — full row -->
           <article class="project-card project-card--pub" data-tags="research" data-type="publication">
             <div class="pub-meta">
+              <div class="pub-photo swap-media" data-interval="3000">
+                <img src="./assets/images/projects/HAWT/goemetry.png" class="swap-img active" alt="HAWT geometry" onerror="this.src='./assets/images/image_not_found.png'" />
+                <img src="./assets/images/projects/HAWT/velocity%20contour.png" class="swap-img" alt="HAWT velocity contour" onerror="this.src='./assets/images/image_not_found.png'" />
+              </div>
               <p class="pub-label">// Publication</p>
               <p class="pub-journal">Journal of Advanced Research in Fluid Mechanics and Thermal Sciences, 2021</p>
               <p class="pub-award">★ Best Paper Award — ICFD14 International Conference</p>
@@ -284,9 +335,9 @@
           </article>
 
           <!-- IDS for Nanosatellite -->
-          <article class="project-card" data-tags="ai-ml,security,research" data-media="diagram">
+          <article class="project-card" data-tags="ai-ml,security,research" data-media="image">
             <div class="project-card__media">
-              <span class="media-label">// architecture diagram</span>
+              <img src="./assets/images/projects/IDS/test.png" alt="IDS nanosatellite" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='./assets/images/image_not_found.png'" />
             </div>
             <div class="project-card__body">
               <div class="project-card__tags">
@@ -298,7 +349,7 @@
               <p class="project-card__desc">Designed a lightweight intrusion detection system for resource-constrained nanosatellite communication links. Final architecture uses a K-Means + Random Forest hybrid model, achieving 95% accuracy under stress-test conditions. Evaluated on both the NSL-KDD benchmark dataset and a satellite-specific traffic dataset (STIN). Journal paper in preparation.</p>
               <p class="project-card__stack">Python · Random Forest · XGBoost · SVM · MLP · K-Means · NSL-KDD · STIN</p>
               <div class="project-card__actions">
-                <a href="https://github.com/zeyad-hisham-cyper/Nano-Satellite-IDS" class="project-card__action" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <a href="https://github.com/zeyad-hisham-cyper/Nano-Satellite-IDS" class="project-card__action" target="_blank" rel="noopener noreferrer">
                   <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
                   GitHub
                 </a>
@@ -307,9 +358,10 @@
           </article>
 
           <!-- Campus Irrigation Automation -->
-          <article class="project-card" data-tags="embedded" data-media="diagram">
-            <div class="project-card__media">
-              <span class="media-label">// architecture diagram</span>
+          <article class="project-card" data-tags="embedded" data-media="image">
+            <div class="project-card__media swap-media" data-interval="3000">
+              <img src="./assets/images/projects/campus%20irrigation%20automation/control%20board.png" class="swap-img active" alt="Irrigation control board" onerror="this.src='./assets/images/image_not_found.png'" />
+              <img src="./assets/images/projects/campus%20irrigation%20automation/Zone.png" class="swap-img" alt="Irrigation zone" onerror="this.src='./assets/images/image_not_found.png'" />
             </div>
             <div class="project-card__body">
               <div class="project-card__tags">
@@ -319,7 +371,7 @@
               <p class="project-card__desc">Solar-powered smart irrigation system built for the MIU campus as a graduation project. Distributed sensor nodes communicate via ESP-NOW, with a central gateway pushing data to Firebase over MQTT. A Flutter mobile dashboard gives live monitoring and manual override. Edge processing keeps latency low and reduces cloud dependency.</p>
               <p class="project-card__stack">ESP-IDF · ESP-NOW · MQTT · Firebase · Flutter · Solar Power</p>
               <div class="project-card__actions">
-                <a href="https://github.com/zeyad-hisham-cyper/IoT-Smarrt-Irrigation-System-using-Solar-power" class="project-card__action" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <a href="https://github.com/zeyad-hisham-cyper/IoT-Smarrt-Irrigation-System-using-Solar-power" class="project-card__action" target="_blank" rel="noopener noreferrer">
                   <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
                   GitHub
                 </a>
@@ -328,16 +380,9 @@
           </article>
 
           <!-- Smart Surveillance Robot -->
-          <article class="project-card" data-tags="embedded" data-media="code">
+          <article class="project-card" data-tags="embedded" data-media="image">
             <div class="project-card__media">
-              <pre class="media-code"><span class="mc-cmt">// bare-metal real-time logic</span>
-<span class="mc-kw">void</span> <span class="mc-fn">obstacle_avoid</span>() {
-  <span class="mc-kw">uint16_t</span> dist = <span class="mc-fn">ADC_read</span>(IR_PIN);
-  <span class="mc-kw">if</span> (dist &lt; THRESHOLD) {
-    <span class="mc-fn">PWM_set</span>(MOTOR_L, 0);
-    <span class="mc-fn">PWM_set</span>(MOTOR_R, 80);
-  }
-}</pre>
+              <img src="./assets/images/projects/smart%20surveillance%20robot/simulation.png" alt="Surveillance robot simulation" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='./assets/images/image_not_found.png'" />
             </div>
             <div class="project-card__body">
               <div class="project-card__tags">
@@ -347,7 +392,7 @@
               <p class="project-card__desc">Multifunctional autonomous robot designed for indoor surveillance, obstacle avoidance, and hazard detection. Built entirely in Embedded C on an AVR microcontroller, implementing ADC-based sensor fusion, PWM motor control, and UART telemetry. No RTOS — bare-metal real-time logic.</p>
               <p class="project-card__stack">AVR · ADC · PWM · UART · ICU · Embedded C</p>
               <div class="project-card__actions">
-                <a href="https://github.com/zeyad-hisham-cyper/Smart-Surveillance-Robot" class="project-card__action" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <a href="https://github.com/zeyad-hisham-cyper/Smart-Surveillance-Robot" class="project-card__action" target="_blank" rel="noopener noreferrer">
                   <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
                   GitHub
                 </a>
@@ -356,9 +401,9 @@
           </article>
 
           <!-- Door Locker Security System -->
-          <article class="project-card" data-tags="embedded,security" data-media="proteus">
+          <article class="project-card" data-tags="embedded,security" data-media="image">
             <div class="project-card__media">
-              <span class="media-label">// proteus simulation</span>
+              <img src="./assets/images/projects/smar%20door%20lock/simulation.png" alt="Door locker simulation" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='./assets/images/image_not_found.png'" />
             </div>
             <div class="project-card__body">
               <div class="project-card__tags">
@@ -369,7 +414,7 @@
               <p class="project-card__desc">Password-based entry system with persistent credential storage in EEPROM and PIR-based intrusion detection. Dual-MCU architecture over UART: one unit handles the user interface, the other manages the lock mechanism and security logic. Designed to demonstrate layered hardware security at the embedded level.</p>
               <p class="project-card__stack">AVR · Embedded C · LCD · Keypad · UART · EEPROM · PIR</p>
               <div class="project-card__actions">
-                <a href="https://github.com/zeyad-hisham-cyper/MT-Embedded-Diploma-Projects/tree/main/Smart_Door_Lock_System" class="project-card__action" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <a href="https://github.com/zeyad-hisham-cyper/MT-Embedded-Diploma-Projects/tree/main/Smart_Door_Lock_System" class="project-card__action" target="_blank" rel="noopener noreferrer">
                   <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
                   GitHub
                 </a>
@@ -378,9 +423,9 @@
           </article>
 
           <!-- Maze Solving Robot -->
-          <article class="project-card" data-tags="embedded" data-media="diagram">
+          <article class="project-card" data-tags="embedded" data-media="image">
             <div class="project-card__media">
-              <span class="media-label">// no code — pure logic gates</span>
+              <img src="./assets/images/projects/Maze%20Solving%20Robot/linefollowerPCB.png" alt="Maze solver PCB" style="width:100%;height:100%;object-fit:cover;" onerror="this.src='./assets/images/image_not_found.png'" />
             </div>
             <div class="project-card__body">
               <div class="project-card__tags">
@@ -390,7 +435,7 @@
               <p class="project-card__desc">Autonomous maze solver built entirely from logic gates — no microcontroller, no code. Sensor inputs feed directly into combinational logic circuits that compute navigation decisions in hardware. A deliberate exercise in understanding computation at its most fundamental level.</p>
               <p class="project-card__stack">Digital Logic · Combinational Circuits · Sensors</p>
               <div class="project-card__actions">
-                <a href="https://github.com/zeyad-hisham-cyper/Maze-Solver-Robot-no-code-" class="project-card__action" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <a href="https://github.com/zeyad-hisham-cyper/Maze-Solver-Robot-no-code-" class="project-card__action" target="_blank" rel="noopener noreferrer">
                   <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
                   GitHub
                 </a>
@@ -399,25 +444,28 @@
           </article>
 
           <!-- AF Function Generator -->
-          <article class="project-card" data-tags="embedded" data-media="proteus">
-            <div class="project-card__media">
-              <span class="media-label">// proteus simulation</span>
+          <article class="project-card" data-tags="embedded" data-media="image">
+            <div class="project-card__media swap-media" data-interval="3000">
+              <img src="./assets/images/projects/AF/schematic.png" class="swap-img active" alt="AF Generator schematic" onerror="this.src='./assets/images/image_not_found.png'" />
+              <img src="./assets/images/projects/AF/Flow%20Graph.png" class="swap-img" alt="AF Generator flow graph" onerror="this.src='./assets/images/image_not_found.png'" />
+              <img src="./assets/images/projects/AF/output.png" class="swap-img" alt="AF Generator output" onerror="this.src='./assets/images/image_not_found.png'" />
             </div>
             <div class="project-card__body">
               <div class="project-card__tags">
                 <span class="tag tag--embedded">Embedded</span>
               </div>
               <h3 class="project-card__title">AF Function Generator</h3>
-              <p class="project-card__desc">Analog function generator producing square, triangle, and sine waveforms from a single astable multivibrator core. The square wave feeds a non-inverting integrator to produce the triangle wave, which passes through an RC low-pass filter to yield a smooth sine output. Designed, simulated in Proteus, and fabricated as a PCB prototype. Clean analog design with no digital components.</p>
+              <p class="project-card__desc">Analog function generator producing square, triangle, and sine waveforms from a single astable multivibrator core. The square wave feeds a non-inverting integrator to produce the triangle wave, which passes through an RC low-pass filter to yield a smooth sine output. Designed, simulated in Proteus, and fabricated as a PCB prototype.</p>
               <p class="project-card__stack">Analog Circuits · Astable Multivibrator · Op-Amp · RC Filter · PCB</p>
               <div class="project-card__actions"></div>
             </div>
           </article>
 
           <!-- Mobile Manipulator -->
-          <article class="project-card" data-tags="embedded,ai-ml" data-media="diagram">
-            <div class="project-card__media">
-              <span class="media-label">// architecture diagram</span>
+          <article class="project-card" data-tags="embedded,ai-ml" data-media="image">
+            <div class="project-card__media swap-media" data-interval="3000">
+              <img src="./assets/images/projects/Mobile%20Manipulator/Mobile%20Manipulator.jpeg" class="swap-img active" alt="Mobile manipulator" onerror="this.src='./assets/images/image_not_found.png'" />
+              <img src="./assets/images/projects/Mobile%20Manipulator/awards.jpg" class="swap-img" alt="Mobile manipulator award" onerror="this.src='./assets/images/image_not_found.png'" />
             </div>
             <div class="project-card__body">
               <div class="project-card__tags">
@@ -430,6 +478,53 @@
               <div class="project-card__actions"></div>
             </div>
           </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Awards
+         ============================================================ -->
+    <section id="awards">
+      <div class="container">
+        <p class="section-eyebrow">// Awards &amp; Achievements</p>
+        <h2 class="section-heading">Recognition</h2>
+
+        <div class="awards-grid">
+
+          <div class="award-card">
+            <p class="award-placement">Best Paper</p>
+            <h3 class="award-event">ICFD14 International Conference on Fluid Dynamics</h3>
+            <p class="award-year">2021</p>
+            <p class="award-note">Research published before finishing high school</p>
+          </div>
+
+          <div class="award-card">
+            <p class="award-placement">1st Place</p>
+            <h3 class="award-event">Robot Challenge Egypt — Freestyle Category</h3>
+            <p class="award-year">2022</p>
+          </div>
+
+          <div class="award-card">
+            <p class="award-placement">1st Place</p>
+            <h3 class="award-event">Go Dive Derby ROV Competition</h3>
+            <p class="award-year">2024</p>
+          </div>
+
+          <div class="award-card">
+            <p class="award-placement">3rd Place</p>
+            <h3 class="award-event">MATE ROV Competition</h3>
+            <p class="award-year">2024</p>
+            <p class="award-note">Qualified for Tennessee Finals</p>
+          </div>
+
+          <div class="award-card award-card--special">
+            <p class="award-placement award-placement--gold">Ranked 1st <span class="award-times">×3</span></p>
+            <h3 class="award-event">Consecutive Academic Years</h3>
+            <p class="award-year">MIU · 2021 – 2024</p>
+            <p class="award-note">Among peers in Electronics &amp; Communications Engineering</p>
+          </div>
 
         </div>
       </div>
@@ -473,83 +568,20 @@
     </section>
 
     <!-- ============================================================
-         Awards & Achievements
+         Z-Domain
          ============================================================ -->
-    <section id="awards">
+    <section id="zdomain">
       <div class="container">
-        <p class="section-eyebrow">// Awards &amp; Achievements</p>
-        <h2 class="section-heading">Recognition</h2>
-
-        <ul class="awards-list">
-          <li class="award-item">
-            <span class="award-dash">—</span>
-            <div class="award-body">
-              <span class="award-name">Best Paper Award</span>
-              <span class="award-meta">ICFD14 International Conference on Fluid Dynamics · 2021</span>
-            </div>
-          </li>
-          <li class="award-item">
-            <span class="award-dash">—</span>
-            <div class="award-body">
-              <span class="award-name">1st Place — Freestyle Category</span>
-              <span class="award-meta">Robot Challenge Egypt · 2022</span>
-            </div>
-          </li>
-          <li class="award-item">
-            <span class="award-dash">—</span>
-            <div class="award-body">
-              <span class="award-name">1st Place</span>
-              <span class="award-meta">Go Dive Derby ROV Competition · 2024</span>
-            </div>
-          </li>
-          <li class="award-item">
-            <span class="award-dash">—</span>
-            <div class="award-body">
-              <span class="award-name">3rd Place — Qualified for Tennessee Finals</span>
-              <span class="award-meta">MATE ROV Competition · 2024</span>
-            </div>
-          </li>
-          <li class="award-item">
-            <span class="award-dash">—</span>
-            <div class="award-body">
-              <span class="award-name">Ranked 1st Among Peers</span>
-              <span class="award-meta">Three consecutive academic years at MIU</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         Content & Writing
-         ============================================================ -->
-    <section id="writing">
-      <div class="container">
-        <p class="section-eyebrow">// Content &amp; Writing</p>
-        <h2 class="section-heading">Z-Domain</h2>
-
-        <div class="writing__grid">
-          <article class="writing-card">
-            <p class="writing-platform">YouTube</p>
-            <h3 class="writing-title">Z-Domain</h3>
-            <p class="writing-desc">Technical content for Arab engineers and curious minds — explained by someone who actually builds the things he talks about.</p>
-            <!-- REPLACE: add platform links/handles when ready -->
-            <a href="#" class="writing-link">↗</a>
-          </article>
-          <article class="writing-card">
-            <p class="writing-platform">Instagram</p>
-            <h3 class="writing-title">Z-Domain</h3>
-            <p class="writing-desc">The "engineer who breaks things to understand them" thesis, in Arabic. Short-form technical content and behind-the-scenes builds.</p>
-            <!-- REPLACE: add platform links/handles when ready -->
-            <a href="#" class="writing-link">↗</a>
-          </article>
-          <article class="writing-card">
-            <p class="writing-platform">TikTok</p>
-            <h3 class="writing-title">Z-Domain</h3>
-            <p class="writing-desc">Electronics, embedded systems, and cybersecurity content aimed at the Arabic-speaking engineering community.</p>
-            <!-- REPLACE: add platform links/handles when ready -->
-            <a href="#" class="writing-link">↗</a>
-          </article>
+        <p class="section-eyebrow" style="text-align:center;">// Content &amp; Writing</p>
+        <div class="zdomain__inner">
+          <h2 class="zdomain__headline">SOON</h2>
+          <div class="zdomain__rule-row">
+            <span class="zdomain__rule"></span>
+            <p class="zdomain__slogan">Limits only exist outside my domain.</p>
+            <span class="zdomain__rule"></span>
+          </div>
+          <!-- REPLACE: add platform links when ready -->
+          <p class="zdomain__platforms">YouTube · Instagram · TikTok</p>
         </div>
       </div>
     </section>
